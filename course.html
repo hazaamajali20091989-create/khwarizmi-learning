@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>الخوارزمي Khwarizmi: تعلّم البرمجة من الصفر</title>
+<meta name="description" content="الخوارزمي Khwarizmi: تعلّم البرمجة من الصفر بالعربي، مرحلة بمرحلة، بالتطبيق العملي.">
+<meta name="theme-color" content="#1C1917">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--bg:#1C1917;--surf:#292524;--raise:#36302B;--ink:#FAFAF9;--mut:#A8A29E;--line:#44403C;--pri:#D97706;--copper:#D97706;--on:#1C1917;--gold:#FBBF24;--silver:#CBD5E1;--link:#FBBF24;--sec:#14B8A6;--ok:#34D399;--bad:#F87171;--code:#120F0D;--codeT:#E7E5E4;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root[data-theme="light"]{color-scheme:light;--bg:#FAFAF9;--surf:#fff;--raise:#F5F5F4;--ink:#1C1917;--mut:#57534E;--line:#D6D3D1;--pri:#B45309;--copper:#B45309;--on:#fff;--gold:#854D0E;--silver:#64748B;--link:#854D0E;--sec:#0F766E;--ok:#047857;--bad:#B42318}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 19px/1.85 "Inter","IBM Plex Sans Arabic",Tahoma,sans-serif}
+button{font:inherit}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;inset-inline-start:12px;top:-70px;background:var(--pri);color:var(--on);padding:10px 16px;border-radius:8px;z-index:9}.skip:focus{top:8px}
+header{background:var(--surf);border-bottom:1px solid var(--line);box-shadow:inset 0 -2px 0 var(--gold);padding:16px 28px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;font-weight:600;font-size:22px}
+.brand .mk{display:grid;place-items:center;width:32px;height:32px;border-radius:8px;background:var(--pri);color:var(--on);font-size:18px}
+.brand span[lang]{font:500 14px "Inter",sans-serif;color:var(--mut)}
+.prog{flex:1;min-width:180px;display:flex;align-items:center;gap:12px}
+.bar{flex:1;height:6px;background:var(--line);border-radius:3px;overflow:hidden}.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--pri),var(--gold));transition:width .3s}
+#pt{font-size:14px;color:var(--mut);white-space:nowrap}
+.wrap{max-width:1500px;margin:0 auto;padding:32px 40px;display:grid;grid-template-columns:300px minmax(0,1fr);gap:36px;align-items:start}
+nav button{display:flex;align-items:center;gap:10px;width:100%;min-height:52px;text-align:right;background:none;border:1px solid transparent;border-radius:8px;padding:10px 14px;margin-bottom:6px;color:var(--mut);font-size:18px;cursor:pointer}
+nav .n{display:grid;place-items:center;flex:none;width:24px;height:24px;border-radius:50%;border:1px solid var(--line);font-size:12px}
+nav button.cur{background:var(--surf);border-color:var(--silver);color:var(--ink);font-weight:600}nav button.cur .n{background:var(--pri);border-color:var(--pri);color:var(--on)}
+nav button:disabled{opacity:.55;cursor:not-allowed}nav small{margin-inline-start:auto;font-size:12px}nav .ck{margin-inline-start:auto;color:var(--ok)}
+main{background:var(--surf);border:1px solid var(--line);border-radius:14px;padding:36px;min-width:0}main:focus{outline:none}
+.steps{list-style:none;display:flex;gap:8px;margin:0 0 22px;padding:0;font-size:14px;color:var(--mut)}
+.steps li{padding:4px 14px;border-radius:14px;border:1px solid var(--line)}.steps .on{background:var(--pri);border-color:var(--pri);color:var(--on)}.steps .dn{color:var(--ok);border-color:var(--ok)}
+h2{margin:0 0 4px;font-size:32px;line-height:1.4;font-weight:600}h2:focus{outline:none}.goal{color:var(--mut);margin:0 0 24px;font-size:20px}
+p{margin:0 0 14px}
+code{font-family:"JetBrains Mono",monospace;background:var(--raise);padding:1px 6px;border-radius:4px;font-size:.9em;direction:ltr;unicode-bidi:isolate}
+.term{border-inline-start:3px solid var(--pri);padding:10px 16px;background:var(--raise);margin:14px 0;font-size:18px;border-radius:0 6px 6px 0}
+.story{border-inline-start:4px solid var(--sec);background:var(--raise);padding:16px 20px;border-radius:10px;margin-bottom:18px;font-size:19px}
+.story b{display:block;margin-bottom:2px;color:var(--gold)}
+textarea{width:100%;direction:ltr;text-align:left;background:var(--code);color:var(--codeT);border:1px solid var(--line);border-radius:8px;padding:14px;font:16px/1.65 "JetBrains Mono",monospace;min-height:130px;resize:vertical}
+pre.out{direction:ltr;text-align:left;background:var(--raise);border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin:10px 0;font:14px/1.6 "JetBrains Mono",monospace;min-height:44px;white-space:pre-wrap}
+.p,.s{min-height:48px;font-size:17px;border-radius:10px;padding:9px 20px;cursor:pointer;border:1px solid var(--pri)}
+.p{background:var(--pri);color:var(--on)}.p:hover{filter:brightness(1.12)}.s{background:transparent;color:var(--link);border-color:var(--line)}.s:hover{border-color:var(--silver)}
+button:disabled{opacity:.45;cursor:not-allowed}
+:focus-visible{outline:3px solid var(--link);outline-offset:2px}
+.row,.foot{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:12px}.foot{margin-top:24px}small{color:var(--mut);font-size:13px}
+fieldset{border:0;border-bottom:1px solid var(--line);padding:0 0 14px;margin:16px 0;min-width:0}legend{font-weight:600;padding:0;margin-bottom:6px}
+.opt{display:flex;justify-content:space-between;align-items:center;gap:8px;width:100%;min-height:48px;text-align:right;background:none;border:1px solid var(--line);border-radius:8px;padding:8px 14px;margin:6px 0;color:var(--ink);font-size:17px;cursor:pointer}
+.opt:hover:not(.ok):not(.no){border-color:var(--silver)}.opt[aria-disabled]{cursor:default}
+.opt.ok{border-color:var(--ok);color:var(--ok)}.opt.no{border-color:var(--bad);color:var(--bad)}
+.fb{font-size:15px;margin:6px 0 0}.fb.ok,.msg.ok{color:var(--ok)}.fb.no,.msg.no{color:var(--bad)}
+.hint{font-size:15px;color:var(--mut);margin:10px 0}.msg{margin:10px 0;font-size:16px}
+@media(max-width:900px){body{font-size:17px}header{padding:12px 16px}.wrap{grid-template-columns:1fr;padding:16px;gap:14px}nav{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px}nav button{flex:0 0 auto;width:auto;min-height:44px;margin:0;white-space:nowrap;font-size:16px}nav small,nav .ck{margin:0}main{padding:24px 20px}h2{font-size:26px}.goal{font-size:18px}}
+@media(max-width:520px){header{gap:12px}.prog{min-width:150px}.wrap{padding:12px}main{padding:18px 16px}.story{font-size:17px}h2{font-size:23px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">تخطَّ إلى المحتوى</a>
+<header><div class="brand"><span class="mk" aria-hidden="true">خ</span>الخوارزمي <span lang="en" dir="ltr">Khwarizmi</span></div>
+<div class="prog"><div class="bar" role="progressbar" aria-label="تقدمك في الجزء الأول" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0"><i id="pb"></i></div><span id="pt"></span></div>
+<button class="s" id="th" onclick="theme()">الوضع الفاتح</button></header>
+<div class="wrap"><nav id="nav" aria-label="مراحل الجزء الأول"></nav><main id="main" tabindex="-1"></main></div>
+<script>
+const L=[
+{t:"أول برنامج",g:"بنهاية الدرس بتعرف تخلي الكمبيوتر يعرض نص على الشاشة.",
+learn:`<p>البرنامج هو مجموعة تعليمات بتكتبها، والكمبيوتر بينفذها <b>حرفياً</b> وبالترتيب، وما بيخمّن شو قصدك.</p>
+<p>أبسط تعليمة نتعلمها: <code>console.log</code>. وظيفتها إنها تعرض شي على الشاشة.</p>
+<div class="term"><b>نص (String):</b> كلام بنكتبه بين علامتي تنصيص، مثل <code>"مرحبا"</code>.</div>
+<div class="term"><b>ناتج (Output):</b> اللي بيظهر بعد تشغيل البرنامج.</div>
+<p>جرّب المثال وغيّر الكلام جواته:</p>`,
+ex:`console.log("مرحبا");\nconsole.log("هذا برنامجي الأول");`,
+quiz:[
+{q:"شو رح يعرض هالكود؟  console.log(\"سلام\")",o:["سلام","console.log","لا شي، فيه خطأ"],a:0,w:"التعليمة بتعرض النص اللي بين علامتي التنصيص بالضبط."},
+{q:"شو الغلط بهالسطر؟  consol.log(\"أهلا\")",o:["علامات التنصيص زيادة","اسم التعليمة مكتوب غلط","ما في غلط"],a:1,w:"الكمبيوتر حرفي: لازم تكتب console بالإملاء الصحيح، وإلا ما بيعرفها."},
+{q:"أي وحدة هي نص (String)؟",o:["42","\"42\"","console"],a:1,w:"أي شي بين علامتي تنصيص هو نص، حتى لو كان رقم."}],
+task:"اكتب برنامج بيعرض بالضبط الجملة:  أهلا بالعالم",st:`// اكتب تعليمتك هون\n`,
+hints:["استخدم console.log مع نص بين علامتي تنصيص.","الشكل العام: console.log(\"...\");","console.log(\"أهلا بالعالم\");"],
+test:(r)=>r.out.length===1&&r.out[0]==="أهلا بالعالم"?null:"الناتج لازم يكون سطر واحد فقط: أهلا بالعالم"},
+{t:"المتغيرات",g:"بنهاية الدرس بتعرف تخزّن معلومة باسم وتستخدمها بعدين.",
+learn:`<p><b>المتغير</b> هو اسم بتعطيه لقيمة محفوظة في الذاكرة، وبتستخدم الاسم وقت ما بدك القيمة.</p>
+<div class="term"><b>متغير (Variable):</b> مكان مسمّى لتخزين قيمة. بنعرّفه بكلمة <code>let</code>.</div>
+<div class="term"><b>قيمة (Value):</b> المعلومة المخزنة: نص أو رقم.</div>
+<p>بنخزّن القيمة بعلامة <code>=</code>، وهي هون معناها "خزّن"، مش "يساوي" بالرياضيات. وبنقدر نعمل عمليات حسابية على الأرقام: <code>+ - * /</code></p>`,
+ex:`let medicine = "دواء تجريبي";\nlet stock = 20;\nconsole.log(medicine);\nconsole.log(stock + 1);`,
+quiz:[
+{q:"شو بتعمل هالتعليمة؟  let price = 5;",o:["بتعرض الرقم 5","بتخزّن 5 بمتغير اسمه price","بتقارن price مع 5"],a:1,w:"let بتنشئ المتغير، وعلامة = بتخزّن القيمة فيه."},
+{q:"شو رح يعرض؟  let x = 4; console.log(x * 3);",o:["x * 3","12","7"],a:1,w:"الكمبيوتر بيستبدل x بقيمتها 4، وبعدين بيضرب بـ 3."},
+{q:"شو قيمة y بالنهاية؟  let y = 2; y = y + 5;",o:["2","5","7"],a:2,w:"أول شي y = 2، وبعدين بنحسب y + 5 = 7 ونخزّنها بنفس المتغير."}],
+task:"عرّف متغيرين: price بقيمة 10، و qty بقيمة 3. بعدين اعرض ناتج ضربهم (المفروض 30).",st:`// عرّف المتغيرين هون\n`,
+hints:["ابدأ بـ let price = 10;","عرّف qty بنفس الطريقة بقيمة 3.","console.log(price * qty);"],
+test:(r)=>!/let\s+price\b/.test(r.code)||!/let\s+qty\b/.test(r.code)?"لازم تعرّف المتغيرين price و qty باستخدام let.":(r.out.length===1&&r.out[0]==="30"?null:"الناتج لازم يكون 30. شغّل الكود وشوف شو عرض.")},
+{t:"الشروط",g:"بنهاية الدرس بتعرف تخلي البرنامج ياخد قرار حسب القيمة.",
+learn:`<p>البرنامج مش لازم ينفذ نفس الشي كل مرة. بنقدر نخليه <b>يقرر</b>: إذا تحقق شرط معين نفّذ شي، وإلا نفّذ شي ثاني.</p>
+<div class="term"><b>شرط (Condition):</b> سؤال جوابه نعم أو لا، مثل <code>age &gt;= 18</code> (هل العمر أكبر من أو يساوي 18؟).</div>
+<div class="term"><b>دالة (Function):</b> مجموعة تعليمات بنعطيها اسم، وبنستدعيها وقت ما بدنا. بتاخد قيمة وبترجّع نتيجة بـ <code>return</code>.</div>
+<p>الصيغة: <code>if (الشرط) { ... } else { ... }</code></p>`,
+ex:`function check(age) {\n  if (age >= 18) {\n    return "مسموح";\n  } else {\n    return "ممنوع";\n  }\n}\nconsole.log(check(20));\nconsole.log(check(12));`,
+quiz:[
+{q:"شو رح يعرض؟  let n = 5; if (n > 10) { console.log(\"كبير\"); } else { console.log(\"صغير\"); }",o:["كبير","صغير","ما رح يعرض شي"],a:1,w:"الشرط n > 10 غير صحيح لأن 5 أصغر من 10، فبيتنفذ جزء else."},
+{q:"أي شرط بيكون صحيح لما age = 18؟",o:["age > 18","age >= 18","age < 18"],a:1,w:">= معناها أكبر من أو يساوي، و18 يساوي 18."},
+{q:"شو وظيفة return داخل الدالة؟",o:["تعرض النتيجة على الشاشة","ترجّع النتيجة لمن استدعى الدالة","تكرر الدالة"],a:1,w:"return بترجّع قيمة من الدالة. العرض على الشاشة شغل console.log."}],
+task:"اكتب دالة اسمها check بتاخد رقم n: إذا n أكبر من 0 ترجّع \"موجب\"، وإلا ترجّع \"غير موجب\".",st:`function check(n) {\n  // اكتب الشرط هون\n}\n`,
+hints:["استخدم if (n > 0) { ... } else { ... }","جوّا كل جزء استخدم return مع النص.","if (n > 0) { return \"موجب\"; } else { return \"غير موجب\"; }"],
+fn:"check",cases:[[5,"موجب"],[-3,"غير موجب"],[0,"غير موجب"]]}
+];
+const inst=c=>"let __c=0;const __g=()=>{if(++__c>1e6)throw new Error('LOOP')};"+c.replace(/\b(for|while)\s*\(([^)]*)\)\s*\{/g,"$1($2){__g();");
+const G=(c,n)=>{try{return new Function("console",inst(c)+"\nreturn typeof "+n+"==='function'?"+n+":null;")({log(){}})}catch(e){return null}};
+const T=(n,cs)=>r=>{const f=G(r.code,n);if(!f)return "ما لقيت دالة اسمها "+n+". تأكد من الاسم.";for(const[a,x]of cs){let v;try{v=f(...a)}catch(e){v=e.message==="LOOP"?"حلقة لا نهائية":e.message}const ok=typeof x==="number"&&typeof v==="number"?Math.abs(v-x)<1e-9:v===x;if(!ok)return "جرّبنا "+n+"("+a.map(z=>JSON.stringify(z)).join(", ")+") وكنا نتوقع "+JSON.stringify(x)+" لكن رجعت: "+(v===undefined?"لا شي (هل نسيت return؟)":typeof v==="number"?String(v):JSON.stringify(v))}return null};
+L.splice(2,0,{t:"النصوص",g:"بنهاية المرحلة بتعرف تدمج النصوص مع القيم وتقيس طولها.",
+learn:`<p>بنقدر ندمج نص مع نص أو رقم باستخدام <code>+</code> ونحصل على نص جديد. هيك بنبني وصل الطلب.</p><div class="term"><b>دمج (Concatenation):</b> لصق نصين ببعض: <code>"أهلا " + "سارة"</code></div><div class="term"><b>الطول:</b> <code>name.length</code> بتعطي عدد الحروف.</div><p>انتبه للمسافات: الكمبيوتر ما بيضيفها لحاله.</p>`,
+ex:`let item = "برغر";\nlet price = 12;\nconsole.log("الطلب: " + item + "، السعر: " + price + " دينار");\nconsole.log(item.length);`,
+quiz:[{q:'شو ناتج  "أ" + "ب"  ؟',o:['"أب"','"أ + ب"','خطأ'],a:0,w:"الجمع بين نصين بيلصقهم ببعض."},{q:'شو ناتج  "5" + 3  ؟',o:['8','"53"','خطأ'],a:1,w:"لما يكون واحد منهم نص، علامة + بتدمج ولا بتجمع. الناتج نص: 53."}],
+task:'اكتب دالة receipt(item, price) بترجّع نص بالشكل: الطلب: برغر، السعر: 12 دينار  (مع الفاصلة العربية ، والمسافات كما هي).',st:`function receipt(item, price) {\n  \n}\n`,
+hints:["ابدأ بـ return \"الطلب: \" + item","كمّل الدمج: + \"، السعر: \" + price + \" دينار\"","return \"الطلب: \" + item + \"، السعر: \" + price + \" دينار\";"],
+test:T("receipt",[[["برغر",12],"الطلب: برغر، السعر: 12 دينار"],[["بيتزا",9],"الطلب: بيتزا، السعر: 9 دينار"]])});
+L.push(
+{t:"الحلقات",g:"بنهاية المرحلة بتعرف تكرر تعليمات بدون ما تكتبها كل مرة.",
+learn:`<p>لو بدك تطبع الأرقام من 1 إلى 100، ما رح تكتب 100 سطر. بنستخدم <b>حلقة</b>.</p><div class="term"><b>حلقة (Loop):</b> بتكرر كود طول ما الشرط صحيح.</div><p>الصيغة: <code>for (let i = 1; i &lt;= 5; i++) { ... }</code><br>يعني: ابدأ i من 1، كرر طول ما i أصغر أو يساوي 5، وزِد i بواحد بعد كل دورة.</p><p><b>تحذير:</b> إذا الشرط ما بيصير خطأ أبداً، الحلقة ما بتوقف (حلقة لانهائية).</p>`,
+ex:`let total = 0;\nfor (let i = 1; i <= 5; i++) {\n  total = total + i;\n}\nconsole.log(total);`,
+quiz:[{q:"كم مرة رح تتكرر؟  for (let i = 0; i &lt; 3; i++)",o:["2","3","4"],a:1,w:"i بياخد القيم 0 و1 و2، وبيوقف لما يصير 3."},{q:"شو بيصير هون؟  let i = 1; while (i &gt; 0) { i = i + 1; }",o:["بتوقف بعد دورة","حلقة لانهائية","خطأ فوري"],a:1,w:"i بيكبر دايماً فالشرط i > 0 ما بيصير خطأ أبداً."}],
+task:"اكتب دالة sumTo(n) بترجّع مجموع الأرقام من 1 إلى n باستخدام حلقة. مثلاً sumTo(4) = 10.",st:`function sumTo(n) {\n  \n}\n`,
+hints:["عرّف let total = 0; قبل الحلقة.","for (let i = 1; i <= n; i++) { total = total + i; }","بعد الحلقة: return total;"],
+test:T("sumTo",[[[4],10],[[1],1],[[10],55],[[0],0]])},
+{t:"القوائم",g:"بنهاية المرحلة بتعرف تخزّن مجموعة قيم وتمرّ عليها.",
+learn:`<p>سلة الطلبات فيها أكتر من صنف. بدل متغير لكل صنف، بنستخدم <b>قائمة</b>.</p><div class="term"><b>قائمة (Array):</b> مجموعة مرتبة من القيم: <code>[5, 10, 3]</code></div><div class="term"><b>الفهرس (Index):</b> رقم مكان العنصر، <b>وبيبدأ من 0</b>. يعني أول عنصر <code>list[0]</code>.</div><p><code>list.length</code> عدد العناصر، و<code>list.push(x)</code> بتضيف عنصر بالآخر.</p>`,
+ex:`let prices = [5, 10, 3];\nprices.push(7);\nconsole.log(prices[0]);\nconsole.log(prices.length);`,
+quiz:[{q:"شو قيمة  list[1]  لما list = [4, 8, 12] ؟",o:["4","8","12"],a:1,w:"الفهرس بيبدأ من 0، فالفهرس 1 هو العنصر التاني."},{q:"شو آخر فهرس صالح بقائمة طولها 5؟",o:["5","4","6"],a:1,w:"الفهارس من 0 إلى 4. هاد أشهر خطأ بالقوائم."}],
+task:"اكتب دالة total(prices) بتاخد قائمة أسعار وبترجّع مجموعها. القائمة الفاضية مجموعها 0.",st:`function total(prices) {\n  \n}\n`,
+hints:["عرّف sum = 0 وامرّ على القائمة بـ for من 0 إلى prices.length.","جوّا الحلقة: sum = sum + prices[i];","لا تنسى return sum;"],
+test:T("total",[[[[5,10,3]],18],[[[]],0],[[[7]],7]])},
+{t:"الدوال",g:"بنهاية المرحلة بتعرف تكتب دالة بأكتر من مدخل وتعيد استخدامها.",
+learn:`<p>الدالة بتخلّيك تكتب المنطق مرة وحدة وتستخدمه كل ما احتجته.</p><div class="term"><b>معاملات (Parameters):</b> المدخلات اللي الدالة بتاخدها، مفصولة بفاصلة: <code>function f(a, b)</code></div><div class="term"><b>القيمة المرجعة:</b> اللي بترجعه الدالة بـ <code>return</code>. بعد return الدالة بتنتهي.</div><p>قاعدة بتوفر عليك وقت: الدالة الواحدة تعمل شغلة وحدة.</p>`,
+ex:`function lineTotal(price, qty) {\n  return price * qty;\n}\nconsole.log(lineTotal(12, 3));\nconsole.log(lineTotal(5, 2));`,
+quiz:[{q:"شو بترجّع؟  function f(a, b) { return a - b; }  واستدعيناها f(10, 4)",o:["14","6","-6"],a:1,w:"الترتيب مهم: a = 10 و b = 4، فالناتج 10 - 4 = 6."},{q:"شو بصير بعد سطر return؟",o:["الدالة بتكمل","الدالة بتنتهي","بيطلع خطأ"],a:1,w:"return بترجّع القيمة وبتنهي الدالة فوراً."}],
+task:"اكتب دالة orderTotal(price, qty, delivery) بترجّع price * qty + delivery.",st:`function orderTotal(price, qty, delivery) {\n  \n}\n`,
+hints:["الدالة لازم تاخد 3 معاملات بهالترتيب.","الصيغة: price * qty + delivery","return price * qty + delivery;"],
+test:T("orderTotal",[[[10,3,2],32],[[5,1,0],5],[[4,0,3],3]])},
+{t:"الكائنات",g:"بنهاية المرحلة بتعرف تمثّل شي حقيقي (صنف بالمنيو) ببيانات منظمة.",
+learn:`<p>صنف المنيو إله اسم وسعر وفئة. بنجمعهم بشي واحد اسمه <b>كائن</b>.</p><div class="term"><b>كائن (Object):</b> مجموعة خصائص، كل وحدة اسم وقيمة: <code>{ name: "برغر", price: 12 }</code></div><p>بنقرأ الخاصية بنقطة: <code>item.price</code>، وبنغيّرها: <code>item.price = 15</code>. وممكن نحط كائنات داخل قائمة: منيو كامل.</p>`,
+ex:`let item = { name: "برغر", price: 12 };\nitem.price = 15;\nconsole.log(item.name + " " + item.price);`,
+quiz:[{q:"شو قيمة  user.age  لما  let user = { name: 'سارة', age: 20 }؟",o:["سارة","20","undefined"],a:1,w:"بنقرأ الخاصية باسمها بعد النقطة."},{q:"أي بنية الأنسب لتمثيل 10 أصناف بالمنيو؟",o:["كائن واحد","قائمة من الكائنات","10 نصوص"],a:1,w:"قائمة فيها كائن لكل صنف، فبنقدر نمرّ عليها وكل صنف إله خصائصه."}],
+task:'اكتب دالة describe(item) بتاخد كائن فيه name و price وبترجّع نص بالشكل  برغر: 12  (الاسم، نقطتين، مسافة، السعر).',st:`function describe(item) {\n  \n}\n`,
+hints:["اقرأ الخاصيتين: item.name و item.price","ادمجهم مع \": \" بالنص.","return item.name + \": \" + item.price;"],
+test:T("describe",[[[{name:"برغر",price:12}],"برغر: 12"],[[{name:"عصير",price:3}],"عصير: 3"]])},
+{t:"تتبع الأخطاء",g:"بنهاية المرحلة بتعرف تلاقي الخطأ بطريقة منظمة بدل التخمين.",
+learn:`<p>المبرمج المحترف مش اللي ما بيغلط، هو اللي بيلاقي غلطه بسرعة. الطريقة:</p><div class="term"><b>1. أعد الخطأ:</b> شغّل الكود وتأكد إنك بتشوف المشكلة.<br><b>2. اعزله:</b> اطبع القيم بالنص بـ <code>console.log</code> وشوف وين بتختلف عن توقعك.<br><b>3. أصلح تعديل واحد:</b> غيّر شي واحد وجرّب.</div><p>اقرأ رسالة الخطأ دايماً: بتحكيلك النوع وغالباً مكان المشكلة.</p>`,
+ex:`let list = [2, 4, 6];\nfor (let i = 0; i <= list.length; i++) {\n  console.log(i, list[i]);\n}`,
+quiz:[{q:"البرنامج بيطبع undefined بآخر دورة. أول شي بتعمله؟",o:["تمسح الكود وتعيد كتابته","تطبع القيم وتشوف الدورة اللي بتتغير فيها النتيجة","تغيّر كل الأرقام"],a:1,w:"العزل بالطباعة بيوريك مكان المشكلة بدل التخمين."},{q:"ليش الأفضل تغيّر شي واحد بكل مرة؟",o:["أسرع بالكتابة","لتعرف أي تعديل حل المشكلة","ما في فرق"],a:1,w:"لو غيّرت عشرة أشياء ما رح تعرف أي واحد هو الحل."}],
+task:"الدالة avg المعطاة فيها خطأ. أصلحها لتحسب المتوسط صح: avg([2,4,6]) = 4.",st:`function avg(list) {\n  let sum = 0;\n  for (let i = 0; i <= list.length; i++) {\n    sum = sum + list[i];\n  }\n  return sum / list.length;\n}\n`,
+hints:["اطبع i و list[i] داخل الحلقة وشوف آخر دورة.","الحلقة بتدور مرة زيادة بسبب <=","غيّر <= إلى <"],
+test:T("avg",[[[[2,4,6]],4],[[[10]],10],[[[1,2]],1.5]])},
+{t:"بوابة المرحلة الأولى",g:"مشروع نظام الطلبات: اختبار مفتوح بدمج كل اللي تعلمته.",
+learn:`<p>هاي البوابة. ما في مفهوم جديد، في <b>مهمة</b> بتدمج المراحل 1 إلى 9: قائمة، كائنات، حلقة، شرط، ودالة.</p><div class="term"><b>الطلب (cart):</b> قائمة من الأصناف، كل صنف كائن: <code>{ name: "برغر", price: 10, qty: 3 }</code></div><p>مجموع الطلب = مجموع (price * qty) لكل الأصناف. وإذا المجموع <b>أكبر من 20</b> بنعطي خصم 10%. (الطلب اللي مجموعه 20 بالضبط ما بياخد خصم.)</p><p>الاختبارات مخفية وفيها حالات حدّية، فخطّط قبل ما تكتب.</p>`,
+ex:`let cart = [\n  { name: "برغر", price: 10, qty: 3 },\n  { name: "عصير", price: 4, qty: 1 }\n];\nconsole.log(cart.length);`,
+quiz:[{q:"كم المجموع قبل الخصم؟  [{price:10,qty:2},{price:5,qty:1}]",o:["15","25","30"],a:1,w:"10*2 + 5*1 = 25."},{q:"طلب مجموعه 20 بالضبط. هل ياخد خصم؟",o:["آه","لا، الشرط أكبر من 20","بيعتمد على الصنف"],a:1,w:"الشرط total > 20، و20 مش أكبر من 20."}],
+task:"اكتب دالة finalTotal(cart): احسب المجموع، وإذا كان أكبر من 20 اطرح 10%، وارجّع الناتج. القائمة الفاضية = 0.",st:`function finalTotal(cart) {\n  \n}\n`,
+hints:["اجمع price * qty لكل صنف بحلقة.","if (total > 20) { total = total * 9 / 10; }","return total;"],
+test:T("finalTotal",[[[[{name:"a",price:10,qty:3}]],27],[[[{name:"a",price:10,qty:2}]],20],[[[{name:"a",price:10,qty:2},{name:"b",price:4,qty:1}]],21.6],[[[]],0]])}
+);
+const ST=[
+"مدير فرع صيدليات الخوارزمي الثاني ما بيشوف اسم الدواء الصحيح على الشاشة، والممرضة بتسأل كل شوي. رنا بتطلب منك تكتب أول برنامج يعرض اسم الصيدلية واسم الفرع. بنهاية المرحلة بتعرض نص وبتعرف ليش البرنامج بيعطي خطأ إذا كتبت أمر غلط.",
+"باسل عم يجهّز شاشة لمخزون تجريبي في صيدليات الخوارزمي، وبدّه يخزّن اسم صنف وعدد وحداته بدل ما يعيد كتابتهم كل مرة. بتتعلّم تستخدم المتغيرات لتخزين هالمعلومات وإجراء حساب بسيط عليها.",
+"وصل الصيدلية التجريبي عم يطلع اسم الصنف والسعر ملزوقين ببعض. بتتعلّم تدمج النصوص والقيم وترتّب تفاصيل الوصل بشكل واضح.",
+"رنا بدها شاشة المخزون تعرض تنبيه إذا قلّ عدد وحدات صنف تجريبي عن الحد المحدد. بتتعلّم تخلي البرنامج يفحص الشرط ويختار النتيجة المناسبة.",
+"باسل بحاجة يحسب مجموع كميات أصناف تجريبية بدون ما يكتب تعليمة لكل صنف. بتتعلّم تكرّر التعليمات بحلقة وتوقف عند الحد المطلوب.",
+"في قائمة فيها كميات عدة أصناف تجريبية، وبدنا نمرّ عليها ونحسب مجموعها. بتتعلّم تخزّن القيم بقائمة وتوصل لكل عنصر بمكانه.",
+"طريقة حساب الكمية الإجمالية انكتبت بأكثر من مكان، وصار تعديلها مرهق. بتتعلّم تحط العملية بدالة واحدة وتعيد استخدامها.",
+"بيانات الصنف التجريبي موزعة بين الاسم والسعر والكمية، وقراءتها صارت مربكة. بتتعلّم تجمع خصائص الصنف بكائن منظم.",
+"حساب متوسط كميات أصناف تجريبية عم يعطي نتيجة غلط. بتتعلّم تتبع القيم خطوة بخطوة وتصلح الخطأ بدل التخمين.",
+"رنا بتعطيك مهمة ختامية على بيانات مخزون وهمية: احسب مجموع الأصناف وطبّق الخصم المحدد على الإجمالي إذا انطبق الشرط. بنهاية المرحلة بتدمج القوائم والكائنات والحلقات والشروط والدوال في برنامج واحد."
+];
+const $=s=>document.querySelector(s);
+const esc=s=>s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+const fmt=s=>esc(s).replace(/([A-Za-z_][\w.]*\([^)]*\))/g,"<code>$1</code>");
+const shuf=n=>{const a=[...Array(n).keys()];for(let i=n-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+let P=0;try{P=+localStorage.getItem("pr")||0}catch(e){}
+let cur=Math.min(P,L.length-1),step=0,qa={},ord={},hi=0;
+function run(code){const out=[],c={log:(...a)=>out.push(a.join(" "))};let err=null,fn=null;
+try{fn=new Function("console",inst(code)+"\nreturn typeof check==='function'?check:null;")(c)}catch(e){err=e.message}
+return{out,err,fn,code}}
+function explain(m){if(m==="LOOP")return"البرنامج دار أكتر من مليون دورة: غالباً حلقة لا نهائية لأنو شرط التوقف ما بيتحقق أبداً. راجع الشرط.";if(/is not defined/.test(m))return"الكمبيوتر ما بيعرف كلمة مكتوبة بالكود. تأكد من الإملاء: "+m;if(/Unexpected|Invalid/.test(m))return"في خطأ بالكتابة (غالباً ناقص قوس أو علامة تنصيص). "+m;return m}
+function theme(){const d=document.documentElement,w=d.dataset.theme==="light";d.dataset.theme=w?"dark":"light";$("#th").textContent=w?"الوضع الفاتح":"الوضع الداكن";try{localStorage.setItem("th",d.dataset.theme)}catch(e){}}
+function nav(){$("#nav").innerHTML=L.map((l,i)=>`<button class="${i===cur?"cur":""}" ${i===cur?'aria-current="step"':""} ${i>P?"disabled":""} onclick="go(${i})"><span class="n">${i+1}</span>${l.t}${i<P?'<span class="ck" aria-label="مكتملة">✓</span>':i>P?"<small>مقفلة</small>":""}</button>`).join("");
+$("#pb").style.width=(P/L.length*100)+"%";$("#pb").parentNode.setAttribute("aria-valuenow",P);$("#pt").textContent="المرحلة "+(cur+1)+" من 100";
+const c=$("#nav .cur");c&&c.scrollIntoView({inline:"center",block:"nearest"})}
+function go(i){cur=i;step=0;qa={};ord={};hi=0;draw()}
+function draw(f=true){nav();const l=L[cur],names=["اشرح","اسأل","طبّق"];
+let h=`<ol class="steps" aria-label="أقسام الدرس">${names.map((n,i)=>`<li class="${i===step?"on":i<step?"dn":""}" ${i===step?'aria-current="step"':""}>${n}</li>`).join("")}</ol><h2 id="ttl" tabindex="-1">${cur+1}. ${l.t}</h2><p class="goal">${l.g}</p>`;
+if(step===0){h+=`<div class="story"><b>المهمة</b>${ST[cur]}</div>`+l.learn+`<label class="sr" for="ex">مثال قابل للتعديل والتشغيل</label><textarea id="ex" spellcheck="false">${l.ex}</textarea><div class="row"><button class="s" onclick="runEx()">شغّل المثال</button><small>Ctrl+Enter للتشغيل</small></div><pre class="out" id="eo" role="status" aria-label="الناتج"></pre><div class="foot"><button class="p" onclick="step=1;draw()">التالي: اختبر نفسك</button></div>`}
+else if(step===1){h+=l.quiz.map((q,qi)=>{ord[qi]=ord[qi]||shuf(q.o.length);const s=qa[qi];return`<fieldset><legend dir="auto">${qi+1}) ${q.q}</legend>${ord[qi].map(oi=>{const c=s===oi?(oi===q.a?"ok":"no"):"";return`<button class="opt ${c}" data-q="${qi}" data-o="${oi}" ${s!==undefined?'aria-disabled="true"':""} onclick="ans(${qi},${oi})"><span dir="auto">${q.o[oi]}</span>${c?`<b>${c==="ok"?"صح":"غلط"}</b>`:""}</button>`}).join("")}${s!==undefined?`<div class="fb ${s===q.a?"ok":"no"}" role="alert">${s===q.a?"صح. ":"مش دقيق. "}${q.w}</div>`:""}</fieldset>`}).join("");
+const ok=l.quiz.every((q,i)=>qa[i]===q.a),dn=Object.keys(qa).length===l.quiz.length;
+h+=(dn&&!ok?`<p class="msg no" role="status">لازم تجاوب كل الأسئلة صح. راجع الشرح وأعد المحاولة، وترتيب الخيارات رح يتغيّر.</p>`:"")+`<div class="foot"><button class="s" onclick="step=0;draw()">رجوع للشرح</button><button class="${dn&&!ok?"p":"s"}" onclick="qa={};ord={};draw()">أعد المحاولة</button><button class="p" ${ok?"":"disabled"} onclick="step=2;draw()">التالي: طبّق</button></div>`}
+else{h+=`<p><b>المطلوب:</b> ${fmt(l.task)}</p><label class="sr" for="cd">محرر الكود</label><textarea id="cd" spellcheck="false" style="min-height:180px">${l.st}</textarea><div class="row"><button class="s" onclick="runCd()">شغّل</button><button class="p" onclick="sub()">سلّم</button><button class="s" onclick="hint()">تلميح</button><small>Ctrl+Enter للتشغيل</small></div><div class="hint" id="ht" role="status"></div><pre class="out" id="co" role="status" aria-label="الناتج"></pre><div class="msg" id="ms" role="status"></div><div class="foot" id="ft"></div>`}
+$("#main").innerHTML=h;
+const t=$("#cd")||$("#ex");t&&t.addEventListener("keydown",e=>{if((e.ctrlKey||e.metaKey)&&e.key==="Enter"){e.preventDefault();(step===0?runEx:runCd)()}});
+if(f){window.scrollTo(0,0);$("#ttl").focus({preventScroll:true})}}
+function runEx(){const r=run($("#ex").value);$("#eo").textContent=r.err?explain(r.err):r.out.join("\n")}
+function ans(q,o){if(qa[q]!==undefined)return;qa[q]=o;const y=document.scrollingElement.scrollTop;draw(false);document.scrollingElement.scrollTop=y;const b=document.querySelector(`[data-q="${q}"][data-o="${o}"]`);b&&b.focus({preventScroll:true})}
+function hint(){const l=L[cur];$("#ht").innerHTML="<b>تلميح "+(hi+1)+":</b> "+fmt(l.hints[hi]);hi=Math.min(hi+1,l.hints.length-1)}
+function runCd(){const r=run($("#cd").value);$("#co").textContent=r.err?explain(r.err):r.out.join("\n")||"(ما في ناتج. استخدم console.log لعرض شي)"}
+function sub(){const l=L[cur],r=run($("#cd").value);let e=null;
+if(r.err)e=explain(r.err);
+else if(l.fn){if(!r.fn)e="ما لقيت دالة اسمها "+l.fn+". تأكد من الاسم.";else for(const[a,x]of l.cases){let v;try{v=r.fn(a)}catch(z){v=z.message==="LOOP"?"حلقة لا نهائية":z.message}if(v!==x){e=`جرّبنا ${l.fn}(${a}) وكنا نتوقع "${x}" لكن رجعت: ${v===undefined?"لا شي (هل نسيت return؟)":v}`;break}}}
+else e=l.test(r);
+const m=$("#ms");$("#co").textContent=r.out.join("\n");
+if(e){m.className="msg no";m.textContent="لسا ما نجح: "+e;return}
+m.className="msg ok";m.textContent="ممتاز، حلّك صحيح.";
+if(cur===P){P++;try{localStorage.setItem("pr",P)}catch(z){}}nav();
+$("#ft").innerHTML=cur<L.length-1?`<button class="p" onclick="go(${cur+1})">الدرس التالي</button>`:`<b>خلّصت المرحلة الأولى (1 إلى 10). المراحل 11 إلى 20 قيد الكتابة.</b>`}
+try{if(localStorage.getItem("th")==="light"){document.documentElement.dataset.theme="light";$("#th").textContent="الوضع الداكن"}}catch(e){}
+draw();
+</script>
+</body>
+</html>
